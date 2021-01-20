@@ -1,0 +1,38 @@
+.div_total{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 0vw; 
+    justify-content: center;
+    align-items: center; 
+    margin: 0 auto;
+    padding: 0px;
+    text-align: center;
+    font-family: Sans-serif;
+    font-size: 16px;
+    background-color: white; 
+}
+
+.div_formulas{
+    width: 320px;
+    height: 280px; 
+    border: 2px solid black;
+    margin: 5px;
+    padding: 5px;
+    background-color: aquamarine;
+}
+
+#h_formulas{
+    font-size: 30px;
+    font-weight: bold; 
+    text-align: center;
+}
+
+.btn_calcular{
+    text-align: center;
+}
+
+.legenda{
+    font-weight: bold; 
+}

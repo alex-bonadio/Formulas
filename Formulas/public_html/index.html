@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fórmulas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="autor" content="Alex Bonadio" />
+        <meta name="descricao" content="Formulas" />
+        <meta name="palavras_chave" content="formulas, matematica" />
+        <link rel="stylesheet" href="main.css" type="text/css"/>
+    </head>
+    <body>
+        <h1 id="h_formulas">Fórmulas</h1>
+        <div class="div_total">           
+            <script type="text/javascript">
+                function regra3() {
+                    var num1 = document.getElementById("cx1").value;
+                    var num2 = document.getElementById("cx2").value;
+                    var num3 = document.getElementById("cx3").value;
+
+                    if (num1 == "" || num2 == "" || num3 == "")
+                    {
+                        alert("Digite um valor válido!");
+                    } else {
+                        var resultado = (num2 * num3);
+                        resultado = resultado / num1;
+                        document.getElementById("cx4").value = resultado.toFixed(2);
+                    }
+                }
+                function imc() {
+                    var altura = document.getElementById("cxAlt").value;
+                    var peso = document.getElementById("cxPes").value;
+                    var msg = "";
+                    var imc = peso / (altura * altura);
+                    imc = imc * 10000;
+                    if (imc < 17) {
+                        msg = "Você está muito abaixo do Peso!";
+                        alert(msg);
+                    } else if (imc >= 17 && imc <= 18.49) {
+                        msg = "Abaixo do Peso!";
+                        alert(msg);
+                    } else if (imc >= 18.50 && imc <= 24.99) {
+                        msg = "Peso Normal";
+                        alert(msg);
+                    } else if (imc >= 25 && imc <= 29.99) {
+                        msg = "Acima do Peso";
+                        alert(msg);
+                    } else if (imc >= 30 && imc <= 34.99) {
+                        msg = "Obesidade I";
+                        alert(msg);
+                    } else if (imc >= 35 && imc <= 39.99) {
+                        msg = "Obesidade II (Severa)";
+                        alert(msg);
+                    } else if (imc >= 40) {
+                        msg = "Obesidade III (mórbida)";
+                        alert(msg);
+                    } else {
+                        alert("Digite um valor válido!");
+                    }
+                    document.getElementById("cxIMC").value = imc.toFixed(2);
+                    document.getElementById("cxMSG").value = msg;
+                }
+                function bhaskara() {
+                    var a = document.getElementById("cxA1").value;
+                    var b = document.getElementById("cxB").value;
+                    var c = document.getElementById("cxC").value;
+                    var delta = (b * b) - (4 * a * c);
+                    if (delta <= 0) {
+                        alert("Delta menor que 0, a equação não possui resultados reais!");
+                    }
+                    var x1 = (-b + Math.sqrt(delta)) / (2 * a);
+                    var x2 = (-b - Math.sqrt(delta)) / (2 * a);
+                    document.getElementById("cxDelta").value = delta.toFixed(2);
+                    document.getElementById("cX1").value = x1.toFixed(2);
+                    document.getElementById("cX2").value = x2.toFixed(2);
+                }
+                function converterBTU() {
+                    var btu = document.getElementById("cxBTU").value;
+                    var horas = document.getElementById("cxHoras").value;
+                    var cpfl_custo = document.getElementById("cxCPFL").value;
+                    var watts = btu * 0.2929;
+                    var kwatts = watts / 1000;
+                    var kwh = kwatts * horas;
+                    var valor = kwh * cpfl_custo;
+                    document.getElementById("cxKw").value = kwatts.toLocaleString('pt-BR');
+                    document.getElementById("cxValor").value = valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                }
+                function consumoEletro() {
+                    var watts = document.getElementById("cxWatts").value;
+                    var horas = document.getElementById("cxHora").value;
+                    var cpfl_custo = document.getElementById("cxRES").value;
+                    var kwatts = watts / 1000;
+                    var kwh = kwatts * horas;
+                    var valor = kwh * cpfl_custo;
+                    document.getElementById("cxConsKw").value = kwh.toLocaleString('pt-BR');
+                    document.getElementById("cxConsumo").value = valor.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+                }
+            </script> 
+            <div class = "div_formulas">
+                <fieldset>
+                    <legend class="legenda">Fórmula de Bhaskara</legend>
+                    <br />
+                    <table class = "tabela">
+                        <tr>
+                            <td><input type="text" size="15" value="Digite o A: " readonly/></td>
+                            <td><input type="text" id="cxA1" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Digite o B: " readonly/></td>
+                            <td><input type="text" id="cxB" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Digite o C: " readonly/></td>
+                            <td><input type="text" id="cxC" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Delta: " readonly/></td>
+                            <td><input type="text" id="cxDelta" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="X': " readonly/></td>
+                            <td><input type="text" id="cX1" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="X'': " readonly/></td>
+                            <td><input type="text" id="cX2" size="15" value="" /></td>
+                        </tr>
+                    </table>
+                    <p class = "btn_calcular"><input type="submit" onclick="bhaskara()" value="Calcular"/></p>
+                </fieldset>
+            </div>
+            <br />
+            <div class = "div_formulas">
+                <fieldset>
+                    <legend class="legenda">Consumo de Eletrodomésticos</legend>
+                    <br />
+                    <table class = "tabela">
+                        <tr>
+                            <td><input type="text" size="15" value="Watts: " readonly/></td>
+                            <td><input type="text" id="cxWatts" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Horas: " readonly/></td>
+                            <td><input type="text" id="cxHora" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Kw/h Residencial R$: " readonly/></td>
+                            <td><input type="text" id="cxRES" size="15" value="0.85" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Consumo em Kw: " readonly/></td>
+                            <td><input type="text" id="cxConsKw" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Consumo R$: " readonly/></td>
+                            <td><input type="text" id="cxConsumo" size="15" value="" /></td>
+                        </tr>
+                    </table>
+                    <p class = "btn_calcular"><button type="button" onclick="consumoEletro()">Calcular</button></p>                
+                </fieldset>
+            </div>
+            <div class = "div_formulas">
+                <fieldset>
+                    <legend class="legenda">Regra de 3 Simples</legend>
+                    <br />
+                    <table class = "tabela">
+                        <tr>
+                            <th><input type="text" id="cxG1" size="15" value="Digite a Grandeza" /></th>
+                            <th><input type="text" id="cxG2" size="15" value="Digite a Grandeza" /></th>
+                        </tr> 
+                        <tr>
+                            <td><input type="text" id="cx1" size="15" value="" /></td>      
+                            <td><input type="text" id="cx2" size="15" value="" /></td>
+                        </tr>
+                        <tr>                     
+                            <td><input type="text" id="cx3" size="15" value="" /></td>                          
+                            <td><input type="text" id="cx4" size="15" value="X" /></td>          
+                        </tr>
+                    </table>  
+                    <p class = "btn_calcular"><button type="button" onclick="regra3()">Calcular</button></p>
+                </fieldset>
+            </div>
+            <br />
+            <div class = "div_formulas">
+                <fieldset>
+                    <legend class="legenda">Cálculo do IMC</legend>
+                    <br />
+                    <table class = "tabela">
+                        <tr>
+                            <td><input type="text" size="15" value="Altura:" readonly/></td>
+                            <td><input type="text" id="cxAlt" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Peso:" readonly/></td>
+                            <td><input type="text" id="cxPes" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="IMC:" readonly/></td>
+                            <td><input type="text" id="cxIMC" size="15" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" size="15" value="Classificação:" readonly/></td>
+                            <td><input type="text" id="cxMSG" size="15" value="" /></td>
+                        </tr>
+                    </table>
+                    <p class = "btn_calcular"><button type="button" onclick="imc()">Calcular</button></p>
+                </fieldset>
+            </div>
+            <br />
+        </div>
+    </body>
+</html>
