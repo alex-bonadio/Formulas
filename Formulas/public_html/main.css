@@ -11,21 +11,19 @@
     text-align: center;
     font-family: Sans-serif;
     font-size: 16px;
-    background-color: white; 
 }
 
 .div_formulas{
     width: 320px;
     height: 280px; 
-    border: 2px solid black;
+    border: 1px solid black;
     margin: 5px;
     padding: 5px;
-    background-color: aquamarine;
+    background-color: lightcyan;
 }
 
 #h_formulas{
-    font-size: 30px;
-    font-weight: bold; 
+    font-size: 30px; 
     text-align: center;
 }
 
@@ -34,5 +32,14 @@
 }
 
 .legenda{
-    font-weight: bold; 
+    font-size: 20px;
+    color: black;
+}
+.tabela{
+/*    width: 320px;
+    height: 280px; */
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightcyan;
 }
